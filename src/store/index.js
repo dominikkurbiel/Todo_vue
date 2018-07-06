@@ -6,8 +6,23 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    message: 'Hello from store',
-    count: 0,
+    todos: [
+      {
+        id: 0,
+        text: 'Learn Vue.js',
+        done: true,
+      },
+      {
+        id: 1,
+        text: 'Go to gym',
+        done: false,
+      },
+      {
+        id: 2,
+        text: 'Watch netflix',
+        done: false,
+      },
+    ],
   },
   mutations: {
 
@@ -16,6 +31,11 @@ export default new Vuex.Store({
 
   },
   getters: {
-
+    doneTodos: (state) => {
+      return state.todos.filter(todo => todo.done);
+    },
+    incompliteTodos: (state) => {
+      return state.todos.filter(todo => !todo.done);
+    },
   },
 });

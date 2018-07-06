@@ -1,22 +1,22 @@
 <template>
-  <div class="home">
-    <List :list="incompliteTodos"/>
+  <div class="about">
+    <List :list="doneTodos"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+
 import { mapGetters } from 'vuex';
 import List from '@/components/List';
 
 export default {
-  name: 'home',
+  name: 'done',
   components: {
     List,
   },
   computed: {
     ...mapGetters([
-      'incompliteTodos',
+      'doneTodos',
     ]),
   },
 };
