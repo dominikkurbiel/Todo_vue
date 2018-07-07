@@ -1,6 +1,14 @@
 
 <template>
-  <li @click="clicked">{{item.text}}</li>
+  <li>
+    {{item.text}}
+    <button
+      v-if="!item.done" 
+      v-on:click="$emit('completeTask')"
+    >
+      Conplete task
+    </button>
+  </li>
 </template>
 
 <script>
@@ -9,11 +17,6 @@ export default {
   props: {
     item: Object,
     handleClick: Function,
-  },
-  methods: {
-    clicked() {
-      this.handleClick();
-    },
   },
 };
 </script>

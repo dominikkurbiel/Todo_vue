@@ -25,7 +25,9 @@ export default new Vuex.Store({
     ],
   },
   mutations: {
-
+    completeTask(state, id) {
+      state.todo[id].done = true;
+    },
   },
   actions: {
 

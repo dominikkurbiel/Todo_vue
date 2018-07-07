@@ -5,6 +5,7 @@
         v-for="item in list"
         v-bind:key="item.id"
         v-bind:item="item"
+        v-on:completeTask="doTask(item)"
       />
     </ul>
   </div>
@@ -21,6 +22,12 @@ export default {
   },
   props: {
     list: Array,
+    completeTask: Function,
+  },
+  methods: {
+    doTask(item) {
+      console.log(item)
+    }
   },
 };
 </script>
