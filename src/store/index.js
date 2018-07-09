@@ -8,25 +8,33 @@ export default new Vuex.Store({
   state: {
     todos: [
       {
-        id: 0,
         text: 'Learn Vue.js',
         done: true,
       },
       {
-        id: 1,
         text: 'Go to gym',
         done: false,
       },
       {
-        id: 2,
         text: 'Watch netflix',
         done: false,
       },
     ],
   },
   mutations: {
-    completeTask(state, id) {
-      state.todo[id].done = true;
+    ADD_TASK: (state, task) => {
+      const newTask = {
+        text: task,
+        done: false,
+      };
+      state.todos.push(newTask);
+    },
+    COMPLETE_TASK(state, item) {
+      state.todos.map((todo, i) => {
+        if (JSON.stringify(todo) === JSON.stringify(item)) {
+          todo.done = true;
+        }
+      });
     },
   },
   actions: {

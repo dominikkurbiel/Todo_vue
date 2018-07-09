@@ -6,7 +6,7 @@
       v-if="!item.done" 
       v-on:click="$emit('completeTask')"
     >
-      Conplete task
+      Complete task
     </button>
   </li>
 </template>
@@ -16,7 +16,7 @@ export default {
   name: 'ItemList',
   props: {
     item: Object,
-    handleClick: Function,
+    completeTask: Function,
   },
 };
 </script>

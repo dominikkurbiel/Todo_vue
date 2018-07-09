@@ -2,8 +2,8 @@
   <div class="list">
     <ul>
       <Item
-        v-for="item in list"
-        v-bind:key="item.id"
+        v-for="(item, index) in list"
+        v-bind:key="index"
         v-bind:item="item"
         v-on:completeTask="doTask(item)"
       />
@@ -13,6 +13,7 @@
 
 <script>
 // @ is an alias to /src
+import { mapMutations } from 'vuex';
 import Item from './ItemList.vue';
 
 export default {
@@ -25,8 +26,11 @@ export default {
     completeTask: Function,
   },
   methods: {
-    doTask(item) {
-      console.log(item)
+    ...mapMutations([
+      'COMPLETE_TASK'
+    ]),
+    doTask: function(item) {
+      this.COMPLETE_TASK(item);
     }
   },
 };
